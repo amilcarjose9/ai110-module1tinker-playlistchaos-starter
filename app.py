@@ -11,176 +11,17 @@ from playlist_logic import (
     normalize_song,
     search_songs,
 )
+from default_songs import DEFAULT_SONGS
 
 
 def init_state():
     """Initialize Streamlit session state."""
     if "songs" not in st.session_state:
-        st.session_state.songs = default_songs()
+        st.session_state.songs = DEFAULT_SONGS.copy()
     if "profile" not in st.session_state:
         st.session_state.profile = dict(DEFAULT_PROFILE)
     if "history" not in st.session_state:
         st.session_state.history = []
-
-
-def default_songs():
-    """Return a default list of songs."""
-    return [
-        {
-            "title": "Thunderstruck",
-            "artist": "AC/DC",
-            "genre": "rock",
-            "energy": 9,
-            "tags": ["classic", "guitar"],
-        },
-        {
-            "title": "Lo-fi Rain",
-            "artist": "DJ Calm",
-            "genre": "lofi",
-            "energy": 2,
-            "tags": ["study"],
-        },
-        {
-            "title": "Night Drive",
-            "artist": "Neon Echo",
-            "genre": "electronic",
-            "energy": 6,
-            "tags": ["synth"],
-        },
-        {
-            "title": "Soft Piano",
-            "artist": "Sleep Sound",
-            "genre": "ambient",
-            "energy": 1,
-            "tags": ["sleep"],
-        },
-        {
-            "title": "Bohemian Rhapsody",
-            "artist": "Queen",
-            "genre": "rock",
-            "energy": 8,
-            "tags": ["classic", "opera"],
-        },
-        {
-            "title": "Blinding Lights",
-            "artist": "The Weeknd",
-            "genre": "pop",
-            "energy": 8,
-            "tags": ["synth", "dance"],
-        },
-        {
-            "title": "Take Five",
-            "artist": "Dave Brubeck",
-            "genre": "jazz",
-            "energy": 4,
-            "tags": ["classic", "instrumental"],
-        },
-        {
-            "title": "Strobe",
-            "artist": "Deadmau5",
-            "genre": "electronic",
-            "energy": 7,
-            "tags": ["progressive", "long"],
-        },
-        {
-            "title": "Weightless",
-            "artist": "Marconi Union",
-            "genre": "ambient",
-            "energy": 1,
-            "tags": ["relax", "sleep"],
-        },
-        {
-            "title": "Smells Like Teen Spirit",
-            "artist": "Nirvana",
-            "genre": "rock",
-            "energy": 9,
-            "tags": ["grunge", "90s"],
-        },
-        {
-            "title": "Levitating",
-            "artist": "Dua Lipa",
-            "genre": "pop",
-            "energy": 8,
-            "tags": ["dance", "party"],
-        },
-        {
-            "title": "So What",
-            "artist": "Miles Davis",
-            "genre": "jazz",
-            "energy": 3,
-            "tags": ["trumpet", "cool"],
-        },
-        {
-            "title": "Midnight City",
-            "artist": "M83",
-            "genre": "electronic",
-            "energy": 7,
-            "tags": ["indie", "dream"],
-        },
-        {
-            "title": "Gymnopedie No.1",
-            "artist": "Erik Satie",
-            "genre": "ambient",
-            "energy": 1,
-            "tags": ["piano", "calm"],
-        },
-        {
-            "title": "Sweet Child O' Mine",
-            "artist": "Guns N' Roses",
-            "genre": "rock",
-            "energy": 8,
-            "tags": ["guitar", "80s"],
-        },
-        {
-            "title": "Bad Guy",
-            "artist": "Billie Eilish",
-            "genre": "pop",
-            "energy": 6,
-            "tags": ["bass", "dark"],
-        },
-        {
-            "title": "Fly Me to the Moon",
-            "artist": "Frank Sinatra",
-            "genre": "jazz",
-            "energy": 5,
-            "tags": ["vocal", "swing"],
-        },
-        {
-            "title": "Sandstorm",
-            "artist": "Darude",
-            "genre": "electronic",
-            "energy": 10,
-            "tags": ["trance", "meme"],
-        },
-        {
-            "title": "Clair de Lune",
-            "artist": "Claude Debussy",
-            "genre": "ambient",
-            "energy": 2,
-            "tags": ["piano", "classical"],
-        },
-        {
-            "title": "Hotel California",
-            "artist": "Eagles",
-            "genre": "rock",
-            "energy": 6,
-            "tags": ["classic", "guitar"],
-        },
-        {
-            "title": "Uptown Funk",
-            "artist": "Mark Ronson ft. Bruno Mars",
-            "genre": "pop",
-            "energy": 9,
-            "tags": ["funk", "dance"],
-        },
-        {
-            "title": "Feeling Good",
-            "artist": "Nina Simone",
-            "genre": "jazz",
-            "energy": 6,
-            "tags": ["soul", "vocal"],
-        },
-    ]
 
 
 def profile_sidebar():
@@ -369,7 +210,7 @@ def clear_controls():
     """Render a small section for clearing data."""
     st.sidebar.header("Manage data")
     if st.sidebar.button("Reset songs to default"):
-        st.session_state.songs = default_songs()
+        st.session_state.songs = DEFAULT_SONGS
     if st.sidebar.button("Clear history"):
         st.session_state.history = []
 
