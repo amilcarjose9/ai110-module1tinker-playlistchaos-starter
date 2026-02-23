@@ -124,14 +124,7 @@ def render_playlist(label, songs):
         st.write("No matching songs.")
         return
 
-    for song in filtered:
-        mood = song.get("mood", "?")
-        tags = ", ".join(song.get("tags", []))
-        st.write(
-            f"- **{song['title']}** by {song['artist']} "
-            f"(genre {song['genre']}, energy {song['energy']}, mood {mood}) "
-            f"[{tags}]"
-        )
+    st.dataframe(filtered, width="stretch")
 
 
 def lucky_section(playlists):
