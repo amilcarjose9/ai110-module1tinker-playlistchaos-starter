@@ -111,3 +111,15 @@ If you finish early or want an extra challenge, try one of these:
 - Stay curious. The unpredictability is intentional and part of the experience.
 
 When you finish, Playlist Chaos will feel more predictable, and you will have taken your first steps into AI-assisted debugging.
+
+---
+
+## Tech Fellow Task Summary
+
+- The core concept of this activity is teaching students how to critically evaluate and debug AI-generated Python code by comparing an app's actual UI behavior against its expected application logic.
+
+- Students are most likely to struggle with narrowing down the scope of a bug, as they might write overly broad prompts that cause the AI to rewrite entire files rather than making targeted, isolated fixes.
+
+- The AI is super helpful for explaining unfamiliar syntax, diagnosing exceptions, or suggesting cleaner refactoring methods like swapping manual loops for standard library tools. However, it can be misleading when it confidently proposes logic that looks structurally correct but violates specific constraints that were not mentioned in the prompt.
+
+- To guide a student without giving away the answer, I would ask them to step away from the AI for a moment and verbally explain what a specific function should be doing. Then, I would encourage them to add a simple print() or st.write() statement to inspect the actual data flowing through that function before asking Copilot their next question.
